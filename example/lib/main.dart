@@ -93,6 +93,26 @@ class _AwesomeInputViewState extends State<AwesomeInputView> {
               items: _selectItems,
               initialValue: 1,
             ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                AwesomeCheckBoxRounded(
+                  size: 40,
+                  onTap: (bool? value) {},
+                ),
+                SizedBox(width: 20),
+                AwesomeCheckBoxRounded(
+                  size: 40,
+                  onTap: (bool? value) {},
+                ),
+                SizedBox(width: 20),
+                AwesomeCheckBoxRounded(
+                  size: 40,
+                  isChecked: true,
+                  onTap: (bool? value) {},
+                ),
+              ],
+            ),
           ],
         ),
       ),
