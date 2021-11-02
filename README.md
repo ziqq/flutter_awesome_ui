@@ -31,5 +31,5 @@ AwesomeCheckBoxRounded(
 
 That will generate this:
 
-![enter image description here](http://g.recordit.co/oJ2Vjhv0MH.gif)
+![enter image description here](http://g.recordit.co/z0xPvDCvSs.gif)
 
