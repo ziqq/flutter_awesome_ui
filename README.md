@@ -1,14 +1,20 @@
 # flutter_awesome_ui
 
 ## Introduction
-Package created to give a fully functional and customizable Text Form Field.
+Package created to give a fully functional and customizable: Text Form Field, Select.
 
 
 ```dart
 AwesomeInput(
- label: '',
- controller: _controller,
+ labelText: '',
+ controller: controller,
  onChanged(String? value) {},
+),
+
+AwesomeSelect(
+  labelText: 'Awesome select example',
+  initialValue: 1,
+  items: [],
 ),
 ```
 
