@@ -12,7 +12,7 @@ AwesomeInput(
 ),
 
 AwesomeSelect(
-  labelText: 'Awesome select example',
+  labelText: '',
   initialValue: 1,
   items: [],
 ),
