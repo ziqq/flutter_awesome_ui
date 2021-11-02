@@ -50,7 +50,7 @@ class _AwesomeInputViewState extends State<AwesomeInputView> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Awesome Input'),
+        title: Text('Awesome UI'),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
@@ -58,32 +58,35 @@ class _AwesomeInputViewState extends State<AwesomeInputView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('inputController: ${_inputController.text}'),
-            SizedBox(height: 8),
+            // Text('inputController: ${_inputController.text}'),
+            // SizedBox(height: 8),
             AwesomeInput(
-              labelText: 'Input with controller',
+              labelText: 'Awesome Input with controller',
               controller: _inputController,
+              textInputAction: TextInputAction.done,
             ),
-            Text('selectControllerText: ${_selectController.text}'),
-            SizedBox(height: 8),
+            // Text('selectControllerText: ${_selectController.text}'),
+            // SizedBox(height: 8),
             AwesomeSelect(
-              labelText: 'Awesome select with controller',
+              labelText: 'Awesome Select with controller',
               controller: _selectController,
               items: _selectItems,
             ),
             AwesomeInput(
-              labelText: 'Input with helper text',
+              labelText: 'Awesome Input with helper text',
               helperText: 'Example helper text',
+              textInputAction: TextInputAction.done,
             ),
             AwesomeInput(
-              labelText: 'Input with initial value & disabled',
+              labelText: 'Awesome Input with initial value & disabled',
               initialValue: 'Example initial value',
               enabled: false,
             ),
             AwesomeInput(
-              labelText: 'Input with error text',
+              labelText: 'Awesome Input with error text',
               initialValue: 'Example initial value',
               errorText: 'Example error text',
+              textInputAction: TextInputAction.done,
             ),
             AwesomeSelect(
               labelText: 'Awesome select example',

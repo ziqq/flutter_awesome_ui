@@ -50,7 +50,7 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
     super.initState();
 
     if (widget.controller != null) {
-      _currentItem = _getCurrentItem(widget.controller);
+      _currentItem = _getCurrentItem(widget.controller!.text);
     }
 
     if (widget.initialValue != null) {
@@ -172,9 +172,7 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
                           final bool? isValid = widget.onChanged
                               ?.call(widget.items[_tempValue!]!.value);
 
-                          if (isValid != null && isValid == false) {
-                            return;
-                          }
+                          if (isValid != null && isValid == false) return;
 
                           setState(() {
                             _controller.text = widget
@@ -183,8 +181,6 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
                                 widget.items[_scrollController.selectedItem];
                             _scrollController = _setTheScrollController();
                           });
-
-                          print('controller_text: ${_controller.text}');
 
                           Navigator.pop(context, true);
                         },

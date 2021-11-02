@@ -18,7 +18,7 @@ AwesomeSelect(
 ),
 ```
 
-<!-- That will generate this:
+That will generate this:
 
-![enter image description here](http://g.recordit.co/QYABeKPzNR.gif) -->
+![enter image description here](http://g.recordit.co/oJ2Vjhv0MH.gif)
 

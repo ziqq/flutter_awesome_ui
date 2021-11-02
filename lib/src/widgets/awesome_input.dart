@@ -86,12 +86,14 @@ class _AwesomeInputState extends State<AwesomeInput> {
   late double _labelOffset;
   late double _height;
 
+  double _labelOffsetEmpty = 3;
+  double _labelOffsetNotEmpty = 2.15;
+
   @override
   void initState() {
-    super.initState();
     _height = widget.height ?? AwesomeUiKitTheme.buttonSizes.large;
 
-    _labelOffset = _height / 3;
+    _labelOffset = _height / _labelOffsetEmpty;
 
     _focusNode = widget.focusNode ?? FocusNode();
     _focusNode.addListener(_focusNodeHandler);
@@ -108,8 +110,10 @@ class _AwesomeInputState extends State<AwesomeInput> {
     }
 
     if (_controller.text.isNotEmpty) {
-      _labelOffset = _height / 2.15;
+      print('LABEL_OFFSET_NOT_EMPTY');
+      _labelOffset = _height / _labelOffsetNotEmpty;
     }
+    super.initState();
   }
 
   @override
@@ -121,29 +125,31 @@ class _AwesomeInputState extends State<AwesomeInput> {
 
   void _focusNodeHandler() {
     if (widget.enabled && !widget.readOnly) {
+      print('IS_NOT_READONLY');
       if (_focusNode.hasFocus) {
         setState(() {
-          _labelOffset = _height / 2.15;
+          _labelOffset = _height / _labelOffsetNotEmpty;
         });
       }
 
       if (_controller.text.isEmpty && !_focusNode.hasFocus) {
         setState(() {
-          _labelOffset = _height / 3;
+          _labelOffset = _height / _labelOffsetEmpty;
         });
       }
     }
 
     if (widget.readOnly) {
-      if (_controller.text.isEmpty) {
-        print('3333333333333333');
+      print('IS_READONLY');
+      if (_controller.text.length > 1) {
+        print('LABEL_OFFSET_NOT_EMPTY');
         setState(() {
-          _labelOffset = _height / 3;
+          _labelOffset = _height / _labelOffsetNotEmpty;
         });
-      } else if (_controller.text.isNotEmpty) {
-        print('44444444444444444');
+      } else {
+        print('LABEL_OFFSET_EMPTY');
         setState(() {
-          _labelOffset = _height / 2.15;
+          _labelOffset = _height / _labelOffsetEmpty;
         });
       }
     }
@@ -191,10 +197,11 @@ class _AwesomeInputState extends State<AwesomeInput> {
           color: widget.debug ? Colors.blue[300] : Colors.transparent,
           child: TextFormField(
             onTap: () {
-              print(widget.readOnly);
-              if (!widget.readOnly)
-                FocusScope.of(context).requestFocus(_focusNode);
               widget.onTap?.call();
+
+              if (!widget.readOnly) {
+                FocusScope.of(context).requestFocus(_focusNode);
+              }
             },
             key: _key,
             focusNode: _focusNode,
