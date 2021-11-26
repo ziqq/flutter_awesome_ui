@@ -123,7 +123,7 @@ class AwesomeUiKit {
 
   AwesomeUiKit._internal() {
     /// set deafult value
-    padding = 20.0;
+    padding = 16.0;
     fontSize = 17.0;
     borderRadius = 16.0;
 
