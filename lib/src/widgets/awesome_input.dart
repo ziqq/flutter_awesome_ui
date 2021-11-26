@@ -11,7 +11,6 @@ class AwesomeInput extends StatefulWidget {
   final double? width;
   final double? height;
   final double padding;
-  final double? borderRadius;
   final int? maxLines;
   final int? maxLength;
   final Color? textColor;
@@ -25,6 +24,7 @@ class AwesomeInput extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final FocusNode? focusNode;
+  final BorderRadius? borderRadius;
   final void Function()? onTap;
   final EdgeInsetsGeometry? margin;
   final TextInputType? keyboardType;
@@ -87,7 +87,7 @@ class _AwesomeInputState extends State<AwesomeInput> {
   late double _height;
 
   double _labelOffsetEmpty = 3;
-  double _labelOffsetNotEmpty = 2.15;
+  double _labelOffsetNotEmpty = 2.2;
 
   @override
   void initState() {
@@ -160,7 +160,7 @@ class _AwesomeInputState extends State<AwesomeInput> {
     OutlineInputBorder outlineInputBorder = OutlineInputBorder(
       gapPadding: 0,
       borderSide: BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.circular(widget.borderRadius ?? 4),
+      borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
     );
 
     return Stack(
@@ -174,7 +174,7 @@ class _AwesomeInputState extends State<AwesomeInput> {
           margin: const EdgeInsets.only(bottom: 20),
           padding: EdgeInsets.symmetric(horizontal: widget.padding),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 8),
+            borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
             color: widget.debug
                 ? Colors.red[300]
                 : widget.enabled
@@ -232,16 +232,16 @@ class _AwesomeInputState extends State<AwesomeInput> {
               isCollapsed: true,
               alignLabelWithHint: true,
               labelStyle: TextStyle(
-                height: 3.8,
+                height: 4.4,
                 fontSize: 16.0,
                 backgroundColor: Colors.transparent,
                 color: widget.labelColor ??
                     Theme.of(context).textTheme.caption?.color,
               ),
               contentPadding: EdgeInsets.only(
+                top: _labelOffset,
                 left: widget.padding,
                 right: widget.padding,
-                top: _labelOffset,
               ),
               fillColor: Colors.transparent,
               border: outlineInputBorder,
@@ -250,7 +250,7 @@ class _AwesomeInputState extends State<AwesomeInput> {
               disabledBorder: outlineInputBorder,
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Theme.of(context).errorColor),
-                borderRadius: BorderRadius.circular(widget.borderRadius ?? 8),
+                borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
               ),
               filled: !widget.enabled,
               hintText: widget.hintText,

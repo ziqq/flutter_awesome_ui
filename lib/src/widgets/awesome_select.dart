@@ -90,7 +90,7 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    // _controller.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -114,7 +114,7 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
       validator: widget.validator,
       errorText: widget.errorText,
       suffixIcon: Icon(
-        Icons.arrow_drop_down,
+        Icons.arrow_drop_down_rounded,
         color: Theme.of(context).dividerColor,
       ),
     );
@@ -141,10 +141,11 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
                       TextButton(
                         child: Text(
                           'Отмена',
-                          style: AwesomeUiKitTheme.textTheme.bodyText2!
-                              .copyWith(
-                                  height: 1.2,
-                                  color: Theme.of(context).accentColor),
+                          style:
+                              AwesomeUiKitTheme.textTheme.bodyText2!.copyWith(
+                            height: 1.2,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ),
                         onPressed: () => Navigator.pop(context, true),
                       ),
@@ -166,7 +167,8 @@ class _AwesomeSelectState extends State<AwesomeSelect> {
                               .copyWith(
                                   height: 1.2,
                                   fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).accentColor),
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
                         ),
                         onPressed: () {
                           final bool? isValid = widget.onChanged
